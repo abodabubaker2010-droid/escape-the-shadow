@@ -1,20 +1,16 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: '/escape-the-shadow/', 
-  plugins: [
-    react(),
-  ],
-  resolve: {
-    alias: {
-      "@": path.resolve(import.meta.dirname, "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-    },
-  },
+  plugins: [react()],
+  base: './',
   build: {
-    outDir: "dist",
+    outDir: 'dist',
+    assetsDir: 'assets',
     emptyOutDir: true,
   },
-});
+  server: {
+    historyApiFallback: true,
+  }
+})
